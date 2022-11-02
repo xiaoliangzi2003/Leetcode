@@ -18,6 +18,7 @@ class Solution {
             }
         }
         return new int[0];
+        //throw new IllegalArgumentException("No two sum solution found");
 
     }
 }
@@ -28,7 +29,7 @@ class Solution {
  * 2.解法思路：遍历数组，如果有nums[i]+nums[j]=target，则返回下标数组；如果没有，则返回0数组
 */
 
-//解法2：哈希表
+//解法2：哈希表,在遍历的同时，记录一些信息
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> hashtable = new HashMap<Integer, Integer>();
@@ -36,11 +37,13 @@ class Solution {
             if (hashtable.containsKey(target - nums[i])) {
                 return new int[]{hashtable.get(target - nums[i]), i};
             }
-            hashtable.put(nums[i], i);
+            hashtable.put(nums[i], i);//将数组第i个元素存放到哈希表中第i个位置
         }
         return new int[0];
     }
 }
+
+
 
 
 // @lc code=end
